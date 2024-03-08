@@ -1,50 +1,55 @@
 import java.util.Scanner;
-
-public class GradeCalculator25 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-
-        System.out.print("Enter the number of subjects: ");
-        int numSubjects = scanner.nextInt();
-
+public class StudentGradeCalculator {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of subjects: ");
+        int totalSub = sc.nextInt();
         int totalMarks = 0;
-
-        for (int i = 1; i <= numSubjects; i++) {
-            System.out.print("Enter marks for Subject " + i + ": ");
-            int marks = scanner.nextInt();
+        for (int i = 1; i <= totalSub; i++) {
+            System.out.println("Marks obtained in subject" + i + ":");
+            int marks = sc.nextInt();
             if (marks < 0 || marks > 100) {
-                System.out.println("Invalid marks! Marks should be between 0 and 100.");
-                return;
+                System.out.println("Invalid marks");
+                i--;
+            } else {
+                totalMarks += marks;
             }
-            totalMarks += marks;
         }
-
-        double averagePercentage = (double) totalMarks / numSubjects;
-
-        System.out.println("\nResults:");
-        System.out.println("Total Marks: " + totalMarks);
-        System.out.println("Average Percentage: " + averagePercentage + "%");
-
-
-        char grade = calculateGrade(averagePercentage);
-        System.out.println("Grade: " + grade);
-
-        scanner.close();
+        float avgPercentage = ((float) totalMarks / totalSub);
+        System.out.println("Result");
+        System.out.println("Total marks:" + totalMarks);
+        System.out.println("Average percentage: " + avgPercentage);
+        System.out.println("Grade: " + calculateGrade(avgPercentage));
     }
 
-
-    private static char calculateGrade(double averagePercentage) {
-        if (averagePercentage >= 90) {
-            return 'A';
-        } else if (averagePercentage >= 80) {
-            return 'B';
-        } else if (averagePercentage >= 70) {
-            return 'C';
-        } else if (averagePercentage >= 60) {
-            return 'D';
-        } else {
-            return 'F';
+    private static String calculateGrade(float avgPercentage) {
+        if (avgPercentage >= 90) {
+            System.out.println("Pass");
+            return "A+";
+        }
+        else if (avgPercentage >= 80) {
+            System.out.println("Pass");
+            return "A";
+        }
+        else if (avgPercentage >= 70) {
+            System.out.println("Pass");
+            return "B";
+        }
+        else if (avgPercentage >= 60) {
+            System.out.println("Pass");
+            return "C";
+        }
+        else if (avgPercentage >= 50) {
+            System.out.println("Pass");
+            return "D";
+        }
+        else if (avgPercentage >= 40) {
+            System.out.println("Pass");
+            return "E";
+        }
+        else {
+            System.out.println("Fail");
+            return "F";
         }
     }
 }
