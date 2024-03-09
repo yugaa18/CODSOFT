@@ -7,7 +7,7 @@ public class NumberGame{
         Scanner sc= new Scanner(System.in);
         int maxAttempts=10;
         int score=0;
-        System.out.println("***🎰Welcome to our Number Guessing Game🎰***");
+        System.out.println("Welcome to our Number Guessing Game ");
         System.out.println("-------------------------------------------------");
         
         do {
